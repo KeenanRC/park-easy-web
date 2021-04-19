@@ -12,7 +12,7 @@
     <!-- Park Easy Logo -->
     <link rel='icon' href='https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png' type='image/icon type'>
 
-    <link href='../css/register.css' rel='stylesheet' />
+    <link href='../css/settings.css' rel='stylesheet' />
 
     <!--Let browser know website is optimized for mobile -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'/>
@@ -21,7 +21,7 @@
 <body>
     <nav> 
         <div class='nav-wrapper'>
-            <a href='#' class='brand-logo'>Register</a>
+            <a href='#' class='brand-logo'>Settings</a>
         </div>
     </nav>
     <ul id='slide-out' class='sidenav'>
@@ -36,39 +36,37 @@
     <div class='fixed-action-btn'>
         <a href='#' class='btn-floating btn-large waves-effect waves-light blue'><i class='medium material-icons'>menu</i></a>
     </div>
-    <div class='container'>
-        <form>
-            <div class='row'>
-                <div class='input-field col s12'>
-                    <input id='username' type='text' class='validate' required>
-                    <label for='username'>Username</label>
-                </div>
-            </div>
-            <div class='row'>
-                <div class='input-field col s12'>
-                    <input id='password' type='password' class='validate' required>
-                    <label for='password'>Password</label>
-                </div>
-            </div>
-            <div class='row'>
-                <div class='col s4'>
-                    <a class='btn waves-effect waves-light' href='/login'>Login</a>
-                </div>
-                <div class='col s4 offset-s4'>
-                    <button class='btn waves-effect waves-light' type='button' id='btn-register'>Register</button>
-                </div>
-            </div>
-        </form>
-    </div>
+
+    <!-- Settings items -->
+    <ul class='collection'></ul>
+
+    <!-- TODO: Implement sync function in footer -->
+
     <!-- jQuery -->
     <script src='https://code.jquery.com/jquery-3.6.0.min.js' integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=' crossorigin='anonymous'></script>
     <!-- Compiled and minified JavaScript -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+    <!-- Data -->
+    <script type='text/javascript' src='../javascript/data.js'></script>
     <!-- Utilities -->
     <script type='text/javascript' src='../javascript/utility.js'></script>
-    
+
     <script type='text/javascript' src='../javascript/init.js'></script>
-    <script type='text/javascript' src='../javascript/register.js'></script>
+    <script type='text/javascript' src='../javascript/settings.js'></script>
 </body>
 
 </html>
+
+<template id='template-collection-item'>
+    <li class='collection-item'>
+        <div class='setting-name'></div>
+        <!-- TODO: NOT IN MVP
+            Extract this with jquery -->
+        <div class='setting-option switch'>
+            <label>
+                <input type="checkbox">
+                <span class="lever"></span>
+            </label>
+        </div>
+    </li>
+</template>
