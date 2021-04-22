@@ -10,18 +10,19 @@ const login = () => {
     // Get username and password
     const username = $('#username').val()
     const password = $('#password').val()
-    $.post('/login', { username: username, password: password }, (data) => {
-        const user = data[0]
-        if (!user) {
+    
+    const url = DEV_MODE ? API_URL['DEV'] : API_URL['PRO']
+    $.post(url + 'login', { username: username, password: password }, (data) => {
+        if (!data.success) {
             // User not found
             M.toast({ html: 'Incorrect username or password' })
             return
         }
-        const currentUser = {
-            username: user.username,
-            userID: user._id
+        const user = {
+            userID: data.userID,
+            username: data.username
         }
-        setItemToLocalStorage('currentUser', currentUser)
+        Utility.setItemToLocalStorage('currentUser', user)
         $(location).attr('href', '/settings')
     })
 }
